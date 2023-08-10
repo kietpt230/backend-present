@@ -43,7 +43,7 @@ public class CookieController {
     public ResponseEntity writeCookie() {
 
         var favColour = "steelblue";
-        var cookie = ResponseCookie.from("fav-col", favColour).build();
+        var cookie = ResponseCookie.from("fav-col", favColour).maxAge(900).httpOnly(true).build();
 
         return ResponseEntity.ok()
                              .header(HttpHeaders.SET_COOKIE, cookie.toString())
